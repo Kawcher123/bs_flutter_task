@@ -12,6 +12,7 @@ class GitRepoLocalDataSourceImpl implements GitRepoLocalDatasource {
 
     try {
       gitRepoList = await GitRepoDatabase.gitRepoDbSource.updateOrInsertItem(gitRepoModel);
+      print('GitRepoLocalDataSourceImpl.saveRepoToLocalDB:${gitRepoList.length}');
     } on DatabaseException catch (e) {
       // TODO
 

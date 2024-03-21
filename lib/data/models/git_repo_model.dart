@@ -2,7 +2,7 @@ import 'package:bs_flutter_task_kawcher/data/models/git_repo_database_fields_mod
 import 'package:bs_flutter_task_kawcher/domain/entities/git_repo_entity.dart';
 
 class GitRepoModel extends GitRepoEntity {
-  const GitRepoModel(
+   GitRepoModel(
       {required int id,
       required String name,
       required String ownerName,

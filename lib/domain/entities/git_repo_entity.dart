@@ -1,16 +1,14 @@
 
-import 'package:equatable/equatable.dart';
+class GitRepoEntity{
+  int id;
+  String name;
+  String ownerName;
+  String? ownerPhoto;
+  int starCount;
+  String? description;
+  String updatedAt;
 
-class GitRepoEntity extends Equatable{
- final int id;
- final String name;
- final String ownerName;
- final String? ownerPhoto;
- final int starCount;
- final String? description;
- final String updatedAt;
-
-  const GitRepoEntity(
+   GitRepoEntity(
       {required this.id,
       required this.name,
       required this.ownerName,
@@ -19,9 +17,7 @@ class GitRepoEntity extends Equatable{
       this.description,
       required this.updatedAt});
 
-  @override
-  // TODO: implement props
-  List<Object?> get props => [id];
+
 
 
 
