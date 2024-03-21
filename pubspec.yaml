@@ -1,0 +1,32 @@
+name: bs_flutter_task_kawcher
+version: 1.0.0+1
+publish_to: none
+description: A new Flutter project.
+environment: 
+  sdk: '>=2.19.6 <3.0.0'
+
+dependencies:
+  get: 4.6.5
+  dartz: ^0.10.1
+  http: ^0.13.5
+  get_it: ^7.2.0
+  shimmer: ^2.0.0
+  cached_network_image: ^3.2.3
+  awesome_dialog: ^3.0.0
+  sqflite: ^2.0.0+4
+  path: ^1.8.0
+  connectivity_plus: ^5.0.2
+  equatable: ^2.0.5
+
+
+  flutter: 
+    sdk: flutter
+
+dev_dependencies: 
+  flutter_lints: ^2.0.0
+  flutter_test: 
+    sdk: flutter
+
+flutter: 
+  uses-material-design: true
+
