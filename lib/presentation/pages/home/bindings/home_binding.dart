@@ -7,7 +7,7 @@ class HomeBinding extends Bindings {
   @override
   void dependencies() {
     Get.lazyPut<HomeController>(
-      () => HomeController(DependencyInjection.getIt()),
+      () => HomeController(DependencyInjection.getIt(),DependencyInjection.getIt(),),
     );
   }
 }

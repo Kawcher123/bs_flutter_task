@@ -6,4 +6,5 @@ class Routes {
 
   static const ENV = '/ENV';
   static const HOME = '/home';
+  static const REPO_DETAILS = '/repo-details';
 }

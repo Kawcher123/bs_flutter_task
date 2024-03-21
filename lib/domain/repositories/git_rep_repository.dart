@@ -7,4 +7,7 @@ abstract class GitRepRepository
 {
   Future<Either<Failure, List<GitRepoEntity>>> getGitRepoFromDatasource({int page=1});
   Future<void> saveRepoDataLocally(List<GitRepoEntity> repos);
+
+  Future<Either<Failure, List<GitRepoEntity>>> getGitRepoFromLocalDatasource();
+
 }

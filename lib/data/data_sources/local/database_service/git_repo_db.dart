@@ -74,7 +74,7 @@ class GitRepoDatabase {
       }
 
       final result = await db.query(GitRepoDatabaseFields.tableName);
-      gitRepoList = result.map((json) => GitRepoModel.fromJson(json)).toList();
+      gitRepoList = result.map((json) => GitRepoModel.fromLocal(json)).toList();
     } on Exception catch (e) {
       // TODO
       rethrow;
@@ -86,7 +86,7 @@ class GitRepoDatabase {
     try {
       final db = await gitRepoDbSource.database;
       final result = await db.query(GitRepoDatabaseFields.tableName);
-      return result.map((json) => GitRepoModel.fromJson(json)).toList();
+      return result.map((json) => GitRepoModel.fromLocal(json)).toList();
     } on Exception catch (e) {
       // TODO
       rethrow;

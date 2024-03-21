@@ -1,5 +1,7 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.example.bs_flutter_task_kawcher">
+
+    <uses-permission android:name="android.permission.INTERNET" />
    <application
         android:label="bs_flutter_task_kawcher"
         android:name="${applicationName}"

@@ -39,4 +39,19 @@ class GitRepRepositoryImpl implements GitRepRepository {
     }
     return repoList;
   }
+
+  @override
+  Future<Either<Failure, List<GitRepoEntity>>> getGitRepoFromLocalDatasource() async {
+    // TODO: implement getGitRepoFromLocalDatasource
+    try {
+      List<GitRepoEntity> gitReposList = await _gitRepoLocalDatasource.getAllRepoListFromLocalDB();
+      return right(gitReposList);
+    } on ServerException catch (_) {
+      debugPrint('GitRepRepositoryImpl.getGitRepoFromDatasource: $_');
+      return left(ServerFailure());
+    } catch (e) {
+      debugPrint('GitRepRepositoryImpl.getGitRepoFromDatasource: $e');
+      return left(GeneralFailure());
+    }
+  }
 }

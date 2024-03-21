@@ -12,4 +12,8 @@ class GitRepoUseCase {
   Future<Either<Failure, List<GitRepoEntity>>> getGitRepoUseCase({required int page}) {
     return _repository.getGitRepoFromDatasource(page: page);
   }
+
+  Future<Either<Failure, List<GitRepoEntity>>> getGitRepoFromLocalUseCase() {
+    return _repository.getGitRepoFromLocalDatasource();
+  }
 }

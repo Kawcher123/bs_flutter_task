@@ -32,6 +32,18 @@ class GitRepoModel extends GitRepoEntity {
     );
   }
 
+   factory GitRepoModel.fromLocal(Map<String, dynamic> json) {
+     return GitRepoModel(
+       id: json[GitRepoDatabaseFields.id],
+       name: json[GitRepoDatabaseFields.name],
+       ownerName: json[GitRepoDatabaseFields.ownerName],
+       ownerPhoto: json[GitRepoDatabaseFields.ownerPhoto],
+       starCount: json[GitRepoDatabaseFields.starCount],
+       description: json[GitRepoDatabaseFields.description]??'',
+       updatedAt: json[GitRepoDatabaseFields.updatedAt],
+     );
+   }
+
   Map<String, Object?> toJson() => {
         GitRepoDatabaseFields.id: id,
         GitRepoDatabaseFields.name: name,
@@ -43,18 +55,21 @@ class GitRepoModel extends GitRepoEntity {
       };
 
   static String getOwnerName(Map<String, dynamic> json) {
-    if (json['owner'] != null && json['owner']['avatar_url'] != null) {
-      return json['owner']['avatar_url'];
+
+    if (json['owner'] != null && json['owner']['login'] != null) {
+      print('GitRepoModel.getOwnerName:${json['owner']['login']}');
+      return json['owner']['login'];
     }
 
     return '';
   }
 
   static String getOwnerPhoto(Map<String, dynamic> json) {
-    if (json['owner'] != null && json['owner']['login'] != null) {
-      return json['owner']['login'];
+
+    if (json['owner'] != null && json['owner']['avatar_url'] != null) {
+      return json['owner']['avatar_url'];
     }
 
-    return 'NA';
+    return '';
   }
 }

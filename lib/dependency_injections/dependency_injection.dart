@@ -3,6 +3,7 @@ import 'package:bs_flutter_task_kawcher/data/data_sources/remote/ds_impl/git_rep
 import 'package:bs_flutter_task_kawcher/data/repositories/git_rep_repo_impl.dart';
 import 'package:bs_flutter_task_kawcher/domain/repositories/git_rep_repository.dart';
 import 'package:bs_flutter_task_kawcher/domain/use_cases/git_repo_use_case.dart';
+import 'package:bs_flutter_task_kawcher/infrastructure/services/internet_connectivity_service.dart';
 import 'package:get_it/get_it.dart';
 import 'package:http/http.dart' as http;
 import '../data/data_sources/local/ds_impl/git_repo_local_data_source_impl.dart';
@@ -19,11 +20,13 @@ class DependencyInjection {
 
     getIt.registerLazySingleton<APIManager>(() => APIManager(getIt()));
 
+    getIt.registerLazySingleton<InternetConnectionService>(() => InternetConnectionService());
+
     getIt.registerLazySingleton<GitRepoRemoteDatasource>(() => GitRepoRemoteDatasourceImpl(getIt()));
     getIt.registerLazySingleton<GitRepoLocalDatasource>(() => GitRepoLocalDataSourceImpl());
     getIt.registerLazySingleton<GitRepRepository>(() => GitRepRepositoryImpl(getIt(),getIt()));
     getIt.registerLazySingleton<GitRepoUseCase>(() => GitRepoUseCase(getIt()));
 
-    getIt.registerLazySingleton<HomeController>(() => HomeController(getIt()));
+    getIt.registerLazySingleton<HomeController>(() => HomeController(getIt(),getIt()));
   }
 }

@@ -16,8 +16,8 @@ class EnvironmentScreenView extends GetView<EnvironmentScreenController> {
       location: BannerLocation.topStart,
       message: env!,
       color: env == Environments.QAS ? Colors.blue : Colors.purple,
-      child: const HomeView(),
+      child:  HomeView(),
     )
-        : const SizedBox(child: HomeView());
+        :  SizedBox(child: HomeView());
   }
 }
