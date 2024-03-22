@@ -19,6 +19,7 @@ class HomeController extends GetxController {
   RxBool gitReposLoaded = false.obs;
   RxBool isLoading = false.obs;
   RxInt pageNo = 1.obs;
+
   @override
   void onInit() {
     super.onInit();
@@ -39,11 +40,11 @@ class HomeController extends GetxController {
   Future<void> _fetchRepositories()
   async {
     bool hasInternet=await _internetConnectionService.checkInternet();
-    print('HomeController.onInit:${hasInternet}');
+    debugPrint('HomeController.onInit:${hasInternet}');
     if (hasInternet==true) {
       _fetchRepos();
     } else {
-      _fetchReposFromLocal();
+      fetchReposFromLocal();
     }
   }
 
@@ -76,7 +77,7 @@ class HomeController extends GetxController {
     });
   }
 
-  Future<void> _fetchReposFromLocal() async {
+  Future<void> fetchReposFromLocal() async {
     final result = await _getGitReposUseCase.getGitRepoFromLocalUseCase();
 
     result.fold((failure) {

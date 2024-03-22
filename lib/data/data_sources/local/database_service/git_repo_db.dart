@@ -1,7 +1,9 @@
 import 'package:bs_flutter_task_kawcher/data/models/git_repo_database_fields_model.dart';
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 import 'package:sqflite/sqflite.dart';
 
+import '../../../../infrastructure/services/common_data_session_service.dart';
 import '../../../models/git_repo_model.dart';
 
 class GitRepoDatabase {
@@ -62,7 +64,10 @@ class GitRepoDatabase {
 
   Future<List<GitRepoModel>> updateOrInsertItem(GitRepoModel gitRepoModel) async {
     List<GitRepoModel> gitRepoList = [];
+
     try {
+      String filterOption=Get.find<CommonDataSessionService>().sortingOption.value;
+      print('GitRepoDatabase.updateOrInsertItem:$filterOption');
       final db = await gitRepoDbSource.database;
       int id = gitRepoModel.id;
       List<Map<String, dynamic>> existingItem = await db.query(GitRepoDatabaseFields.tableName, where: 'id = ?', whereArgs: [id]);
@@ -73,7 +78,9 @@ class GitRepoDatabase {
         await db.insert(GitRepoDatabaseFields.tableName, gitRepoModel.toJson());
       }
 
-      final result = await db.query(GitRepoDatabaseFields.tableName);
+      final result = await db.query(GitRepoDatabaseFields.tableName,
+          orderBy: '$filterOption DESC'
+      );
       gitRepoList = result.map((json) => GitRepoModel.fromLocal(json)).toList();
     } on Exception catch (e) {
       // TODO
@@ -84,8 +91,11 @@ class GitRepoDatabase {
 
   Future<List<GitRepoModel>> readAll() async {
     try {
+      String filterOption=Get.find<CommonDataSessionService>().sortingOption.value;
       final db = await gitRepoDbSource.database;
-      final result = await db.query(GitRepoDatabaseFields.tableName);
+      final result = await db.query(GitRepoDatabaseFields.tableName,
+          orderBy: '$filterOption DESC'
+      );
       return result.map((json) => GitRepoModel.fromLocal(json)).toList();
     } on Exception catch (e) {
       // TODO

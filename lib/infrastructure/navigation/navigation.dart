@@ -22,7 +22,7 @@ class Nav {
     ),
     GetPage(
       name: Routes.REPO_DETAILS,
-      page: () => const RepoDetailsView(),
+      page: () =>  RepoDetailsView(),
       binding: RepoDetailsBinding(),
     ),
   ];

@@ -200,10 +200,10 @@ class Ui {
         ));
   }
 
-  Widget customSmallBox({double? size, Color? color, Widget? child, double? radius}) {
+  Widget customSmallBox({double? size,double? height, Color? color, Widget? child, double? radius}) {
     return Container(
       width: size,
-      height: size,
+      height:height?? size,
       decoration: BoxDecoration(color: color!, borderRadius: BorderRadius.circular(radius ?? 30)),
       child: Center(child: child),
     );
