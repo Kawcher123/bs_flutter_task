@@ -66,12 +66,6 @@ class Ui {
     return BoxDecoration(
       color: color ?? Get.theme.primaryColor,
       borderRadius: BorderRadius.all(Radius.circular(radius ?? 10)),
-      // boxShadow: [
-      //   BoxShadow(
-      //       color: shadowColor ?? Get.theme.primaryColor.withOpacity(0.3),
-      //       blurRadius: 5,
-      //       offset: const Offset(0, 5)),
-      // ],
       border: border ?? Border.all(color: Get.theme.dividerColor),
       gradient: gradient,
     );
@@ -178,14 +172,6 @@ class Ui {
 
   Widget customLoader() {
     return  SpinKitDoubleBounce(
-      // itemBuilder: (BuildContext context, int index) {
-      //   return DecoratedBox(
-      //     decoration: BoxDecoration(
-      //       borderRadius: BorderRadius.circular(50),
-      //       color: index.isEven ? Get.theme.primaryColor : Colors.black87,
-      //     ),
-      //   );
-      // },
       color: Get.theme.primaryColor,
     );
   }
@@ -238,78 +224,6 @@ class Ui {
     );
   }
 
-  //  showAwesomeDialog(String title, String description, Color? color, VoidCallback? onTap, context,
-  //     {bool showClose = false, bool isBarrierDismiss = true, double? width, String type = '', String okay = 'Okay',String cancel='No'}) {
-  //   Size size = MediaQuery.of(context).size;
-  //   return AwesomeDialog(
-  //     context: context,
-  //     dialogType: type == 'success' ? DialogType.success :type == 'error' ?DialogType.error:type == 'warning' ?DialogType.warning :DialogType.noHeader,
-  //     borderSide:  BorderSide(
-  //       color: Get.theme.primaryColor,
-  //       width: 1,
-  //     ),
-  //     btnOkColor: color ?? Colors.yellow.shade500,
-  //     width: size.width,
-  //     buttonsBorderRadius: const BorderRadius.all(
-  //       Radius.circular(25),
-  //     ),
-  //     dismissOnTouchOutside: isBarrierDismiss,
-  //     dismissOnBackKeyPress: false,
-  //     headerAnimationLoop: false,
-  //     animType: AnimType.bottomSlide,
-  //     title: title,
-  //     titleTextStyle: const TextStyle(
-  //       fontSize: 18,
-  //       color: Colors.black,
-  //       fontWeight: FontWeight.normal,
-  //     ),
-  //     desc: description,
-  //     descTextStyle: const TextStyle(
-  //       fontSize: 15,
-  //       color: Colors.black,
-  //       fontWeight: FontWeight.normal,
-  //     ),
-  //     showCloseIcon: false,
-  //     btnCancel: Row(
-  //       mainAxisAlignment: MainAxisAlignment.spaceBetween,
-  //       children: [
-  //         showClose
-  //             ? BlockButtonWidget(
-  //                 color: Colors.red,
-  //                 hasBorder: true,
-  //                 width: 30.w,
-  //                 onPressed: () {
-  //                   Navigator.pop(context);
-  //                 },
-  //                 child:  Text(
-  //                   cancel,
-  //                   style: const TextStyle(
-  //                     color: Colors.white,
-  //                   ),
-  //                 ),
-  //               )
-  //             : Wrap(),
-  //         BlockButtonWidget(
-  //           color: primaryBlue,
-  //           onPressed: onTap,
-  //           width: showClose ? 30.w : 60.w,
-  //           child: Text(
-  //             okay,
-  //             style: const TextStyle(
-  //               color: Colors.white,
-  //             ),
-  //           ),
-  //         ),
-  //         const SizedBox(
-  //           height: 5,
-  //         ),
-  //         const SizedBox(
-  //           height: 5,
-  //         ),
-  //       ],
-  //     ),
-  //   ).show();
-  // }
 
    Widget shimmerLoader({double? width = 200,double? radius, double? height = 100, Color? baseColor, Color? highlightColor}) {
     return Shimmer.fromColors(
