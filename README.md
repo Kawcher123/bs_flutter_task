@@ -18,3 +18,10 @@ Flutter Task.
 ![Alt text](assets/1.png)
 
 ![Alt text](assets/2.png)
+
+
+
+## Folder Structures
+
+![Alt text](assets/3.png)
+
