@@ -140,30 +140,13 @@ class HomeView extends GetView<HomeController> {
                                   children: [
                                     Column(
                                       children: [
+                                      
                                         Container(
-                                          width: 80,
-                                          height: 50,
-                                          decoration: BoxDecoration(
-                                              color: Get.theme.focusColor.withOpacity(0.2),
-                                              borderRadius: const BorderRadius.only(topRight: Radius.circular(10), topLeft: Radius.circular(10))),
-                                          padding: const EdgeInsets.symmetric(horizontal: 5, vertical: 6),
-                                          child: Center(
-                                            child: Text('Updated Time',
-                                                style: Get.textTheme.titleLarge!.merge(
-                                                  const TextStyle(fontSize: 10),
-                                                ),
-                                                maxLines: 1,
-                                                softWrap: false,
-                                                textAlign: TextAlign.center,
-                                                overflow: TextOverflow.fade),
-                                          ),
-                                        ),
-                                        Container(
-                                          width: 80,
-                                          height: 100,
+                                          width: size.width*0.2,
+                                          height: size.height*0.18,
                                           decoration: BoxDecoration(
                                             color: Get.theme.primaryColor.withOpacity(0.2),
-                                            borderRadius: const BorderRadius.only(bottomRight: Radius.circular(10), bottomLeft: Radius.circular(10)),
+                                            borderRadius:  BorderRadius.circular(10),
                                           ),
                                           padding: const EdgeInsets.symmetric(horizontal: 5, vertical: 6),
                                           child: Center(

@@ -12,7 +12,6 @@ class CommonDataSessionService extends GetxService {
     // TODO: implement onInit
     super.onInit();
 
-    _box = GetStorage();
     getFilterOption();
   }
 

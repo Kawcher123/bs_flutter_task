@@ -12,7 +12,6 @@ class AuthService extends GetxService {
   @override
   void onInit() async {
     // TODO: implement onInit
-    _box = GetStorage();
     getToken();
     super.onInit();
   }

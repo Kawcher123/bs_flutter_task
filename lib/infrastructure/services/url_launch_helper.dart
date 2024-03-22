@@ -1,5 +1,6 @@
 
 
+import 'package:flutter/material.dart';
 import 'package:url_launcher/url_launcher.dart';
 
 class UrlLaunchHelper{
@@ -11,7 +12,7 @@ class UrlLaunchHelper{
 
 
   Future<void> urlLauncher(String? link) async {
-    print('UrlLaunchHelper.urlLauncher:$link');
+    debugPrint('UrlLaunchHelper.urlLauncher:$link');
     Uri url=Uri.parse(link??'');
     if (!await launchUrl(
       url,
