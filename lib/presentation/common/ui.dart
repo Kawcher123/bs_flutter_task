@@ -7,7 +7,6 @@ import 'package:get/get.dart';
 import 'package:lottie/lottie.dart';
 import 'package:flutter_spinkit/flutter_spinkit.dart';
 import 'package:shimmer/shimmer.dart';
-import 'package:sizer/sizer.dart';
 
 class Ui {
   static Ui? _commonUi;
@@ -190,7 +189,12 @@ class Ui {
       color: Get.theme.primaryColor,
     );
   }
-
+   Widget customBottomLoader() {
+    return SpinKitDoubleBounce(
+      size: 30,
+      color: Get.theme.primaryColor,
+    );
+  }
   Widget customBackIcon({VoidCallback? onPress, Color? color}) {
     return IconButton(
         onPressed: onPress,
@@ -217,8 +221,8 @@ class Ui {
       crossAxisAlignment: CrossAxisAlignment.center,
       children: [
         SizedBox(
-          height: 85.w,
-          width: 100.w,
+          height: size.height,
+          width: size.width,
           child: Lottie.asset(url),
         ),
         Center(

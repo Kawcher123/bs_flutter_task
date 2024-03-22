@@ -10,6 +10,8 @@ extension GitRepoEntityExtension on GitRepoEntity {
       ownerPhoto: ownerPhoto,
       starCount: starCount,
       description: description,
+      url: url,
+      ownerGit: ownerGit,
       updatedAt: updatedAt,
     );
   }

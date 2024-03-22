@@ -1,4 +1,5 @@
 import 'package:bs_flutter_task_kawcher/infrastructure/internet_connectivity/internet_connectivity_binding.dart';
+import 'package:bs_flutter_task_kawcher/infrastructure/services/auth_service.dart';
 import 'package:flutter/material.dart';
 
 import 'package:get/get.dart';
@@ -13,6 +14,7 @@ void main() async {
   WidgetsFlutterBinding.ensureInitialized();
   var initialRoute = await Routes.initialRoute;
   await GetStorage.init();
+  await Get.putAsync<AuthService>(() async => AuthService());
   await Get.putAsync<CommonDataSessionService>(() async => CommonDataSessionService());
   await DependencyInjection.init();
 
@@ -21,7 +23,7 @@ void main() async {
 
 class Main extends StatelessWidget {
   final String initialRoute;
-  const Main(this.initialRoute);
+  const Main(this.initialRoute, {super.key});
 
   @override
   Widget build(BuildContext context) {

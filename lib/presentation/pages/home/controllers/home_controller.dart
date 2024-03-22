@@ -11,7 +11,7 @@ class HomeController extends GetxController {
   final GitRepoUseCase _getGitReposUseCase;
   final InternetConnectionService _internetConnectionService;
 
-  HomeController(this._getGitReposUseCase,this._internetConnectionService);
+  HomeController(this._getGitReposUseCase, this._internetConnectionService);
 
   final ScrollController scrollController = ScrollController();
 
@@ -20,11 +20,13 @@ class HomeController extends GetxController {
   RxBool isLoading = false.obs;
   RxInt pageNo = 1.obs;
 
+  String? refreshTime;
+
   @override
   void onInit() {
     super.onInit();
     scrollController.addListener(_loadMoreData);
-    _fetchRepositories();
+    fetchRepositories();
   }
 
   @override
@@ -37,11 +39,10 @@ class HomeController extends GetxController {
     super.onClose();
   }
 
-  Future<void> _fetchRepositories()
-  async {
-    bool hasInternet=await _internetConnectionService.checkInternet();
+  Future<void> fetchRepositories() async {
+    bool hasInternet = await _internetConnectionService.checkInternet();
     debugPrint('HomeController.onInit:${hasInternet}');
-    if (hasInternet==true) {
+    if (hasInternet == true) {
       _fetchRepos();
     } else {
       fetchReposFromLocal();
@@ -86,5 +87,20 @@ class HomeController extends GetxController {
       gitRepositories.assignAll(repos);
       gitReposLoaded.value = true;
     });
+  }
+
+  int calculateDifferenceInMinutes(DateTime oldTime, DateTime currentTime) {
+    Duration difference = currentTime.difference(oldTime);
+    int differenceInMinutes = difference.inMinutes;
+    return differenceInMinutes;
+  }
+
+  void refreshHome() {
+    DateTime currentTime = DateTime.now();
+
+    if (refreshTime == null || calculateDifferenceInMinutes(DateTime.parse(refreshTime!),currentTime) >= 30) {
+      fetchRepositories();
+      refreshTime = currentTime.toString();
+    }
   }
 }

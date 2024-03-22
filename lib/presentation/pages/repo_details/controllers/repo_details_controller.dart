@@ -22,4 +22,6 @@ class RepoDetailsController extends GetxController {
     super.onClose();
   }
 
+
+
 }

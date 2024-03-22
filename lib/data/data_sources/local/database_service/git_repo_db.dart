@@ -30,7 +30,7 @@ class GitRepoDatabase {
   }
 
   Future<void> _createDatabase(Database database, int version) async {
-    print('GitRepoDbSource._createDatabase....');
+    debugPrint('GitRepoDbSource._createDatabase....');
     try {
       await database.execute("""
       CREATE TABLE ${GitRepoDatabaseFields.tableName} (
@@ -40,6 +40,8 @@ class GitRepoDatabase {
         ${GitRepoDatabaseFields.ownerPhoto} TEXT NOT NULL,
         ${GitRepoDatabaseFields.starCount} INTEGER NOT NULL,
        ${GitRepoDatabaseFields.description} LONGTEXT NOT NULL,
+       ${GitRepoDatabaseFields.gitLink} TEXT NOT NULL,
+        ${GitRepoDatabaseFields.ownerGit} TEXT NOT NULL,
         ${GitRepoDatabaseFields.updatedAt} LONGTEXT NOT NULL
         
       )
@@ -67,7 +69,7 @@ class GitRepoDatabase {
 
     try {
       String filterOption=Get.find<CommonDataSessionService>().sortingOption.value;
-      print('GitRepoDatabase.updateOrInsertItem:$filterOption');
+      debugPrint('GitRepoDatabase.updateOrInsertItem:$filterOption');
       final db = await gitRepoDbSource.database;
       int id = gitRepoModel.id;
       List<Map<String, dynamic>> existingItem = await db.query(GitRepoDatabaseFields.tableName, where: 'id = ?', whereArgs: [id]);

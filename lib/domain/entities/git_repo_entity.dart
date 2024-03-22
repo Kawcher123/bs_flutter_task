@@ -6,6 +6,8 @@ class GitRepoEntity{
   String? ownerPhoto;
   int starCount;
   String? description;
+  String? url;
+  String? ownerGit;
   String updatedAt;
 
    GitRepoEntity(
@@ -15,6 +17,8 @@ class GitRepoEntity{
       this.ownerPhoto,
       required this.starCount,
       this.description,
+        this.url,
+        this.ownerGit,
       required this.updatedAt});
 
 

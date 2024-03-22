@@ -11,6 +11,8 @@ class GitRepoDatabaseFields {
   static const String ownerName = 'login';
   static const String ownerPhoto = 'avatar_url';
   static const String starCount = 'stargazers_count';
+  static const String gitLink = 'html_url';
+  static const String ownerGit = 'url';
   static const String description = 'description';
   static const String updatedAt = 'updated_at';
 }
